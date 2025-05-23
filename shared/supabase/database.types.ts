@@ -39,16 +39,19 @@ export type Database = {
           content: string | null
           created_at: string
           id: number
+          updated_at: string | null
         }
         Insert: {
           content?: string | null
           created_at?: string
           id?: number
+          updated_at?: string | null
         }
         Update: {
           content?: string | null
           created_at?: string
           id?: number
+          updated_at?: string | null
         }
         Relationships: []
       }

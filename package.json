@@ -9,10 +9,12 @@
     "lint": "next lint",
     "postcss": "sass ./public/assets/scss/style.scss ./public/assets/css/style.css && postcss ./public/assets/css/style.css -o ./public/assets/css/style.css",
     "sass": "sass ./public/assets/scss/:./public/assets/css/",
-    "sass-min": "sass ./public/assets/scss/:./public/assets/css/ --style compressed"
+    "sass-min": "sass ./public/assets/scss/:./public/assets/css/ --style compressed",
+    "update-types": "npx supabase gen types typescript --local > shared/supabase/database.types.ts"
   },
   "dependencies": {
     "@emotion/styled": "^11.11.5",
+    "@legendapp/state": "^2.1.15",
     "@material/slider": "^14.0.0",
     "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.15",
