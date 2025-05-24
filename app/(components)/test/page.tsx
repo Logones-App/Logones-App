@@ -4,9 +4,28 @@ import { useEffect, useState } from "react";
 import { insertRow, updateRow, deleteRow } from "@/shared/supabase/crud";
 import { useObservable, useSelector } from "@legendapp/state/react";
 import { dbState, subscribeTableRealtime } from "@/shared/legendState/store";
+import { useAuth, useAuthSync } from "@/shared/legendState/authStore";
+import { useRouter } from "next/navigation";
 
 export default function CrudDemo() {
+  useAuthSync(); // Synchronise l'état utilisateur au chargement
+  const user = useAuth();
+  const router = useRouter();
   const [newMessage, setNewMessage] = useState("");
+
+  /*  useEffect(() => {
+    if (user === null) {
+      router.replace("/sign-in");
+    }
+  }, [user, router]); */
+
+  /* if (user === null) {
+    return null; // Ou un loader/spinner
+  } */
+
+  /*  if (!user) {
+    return <a href="/sign-in">Se connecter</a>;
+  } */
 
   useEffect(() => {
     subscribeTableRealtime("messages");
